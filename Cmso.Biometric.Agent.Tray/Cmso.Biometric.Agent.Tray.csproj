@@ -10,13 +10,13 @@
     <PlatformTarget>x86</PlatformTarget>
     <RuntimeIdentifier>win-x86</RuntimeIdentifier>
     <ApplicationIcon>cmso_icone.ico</ApplicationIcon>
-    <Version>1.1.0.0</Version>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.1.0</Version>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
     <Company>CMSO</Company>
-    <Product>CMSO Agente Biométrico</Product>
-    <Description>Tray de notificações — agente biométrico CMSO</Description>
-    <Copyright>Copyright © 2026 CMSO</Copyright>
+    <Product>CMSO Agente Biometrico</Product>
+    <Description>Tray de notificacoes - agente biometrico CMSO</Description>
+    <Copyright>Copyright 2026 CMSO</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
