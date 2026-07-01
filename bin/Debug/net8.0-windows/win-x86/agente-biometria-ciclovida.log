@@ -1,0 +1,46 @@
+[2026-07-01 03:49:56] [Information] CMSO Agente Biométrico (Tray) iniciando...
+[2026-07-01 03:49:56] [Information] HubUrl: http://localhost:5163
+[2026-07-01 03:50:00] [Information] Conectado ao servidor SignalR em http://localhost:5163
+[2026-07-01 03:50:00] [Information] Agente registrado: CompanyCode=FELIX StationId=FELIX
+[2026-07-01 03:50:01] [Information] Leitor biométrico inicializado com sucesso. Imagem: 320x480 (153600 bytes)
+[2026-07-01 03:50:09] [Information] Comando IniciarValidacao: 5c403749-82b0-4a9f-a32d-ff36ca2d4d28
+[2026-07-01 03:50:09] [Information] ValidacaoResponse enviada: 5c403749-82b0-4a9f-a32d-ff36ca2d4d28 status=started approved=(null)
+[2026-07-01 03:50:10] [Information] GetImageAsBase64Png iniciado. rawImage Length=153600, Width=320, Height=480
+[2026-07-01 03:50:10] [Information] GetImageAsBase64Png concluído com sucesso. Base64 Length=176668
+[2026-07-01 03:50:10] [Information] Template criado: 428 bytes (max=1562)
+[2026-07-01 03:50:10] [Information] Match: score=1000.0 (normalizado=100/100) threshold=70 matched=True
+[2026-07-01 03:50:11] [Information] ValidacaoResponse enviada: 5c403749-82b0-4a9f-a32d-ff36ca2d4d28 status=success approved=True
+[2026-07-01 03:52:39] [Information] Comando IniciarValidacao: 2c3e6683-410d-40d9-a318-fe64c27ff2d5
+[2026-07-01 03:52:39] [Information] ValidacaoResponse enviada: 2c3e6683-410d-40d9-a318-fe64c27ff2d5 status=started approved=(null)
+[2026-07-01 03:52:40] [Information] GetImageAsBase64Png iniciado. rawImage Length=153600, Width=320, Height=480
+[2026-07-01 03:52:40] [Information] GetImageAsBase64Png concluído com sucesso. Base64 Length=178108
+[2026-07-01 03:52:40] [Information] Template criado: 410 bytes (max=1562)
+[2026-07-01 03:52:40] [Information] Match: score=573.0 (normalizado=100/100) threshold=70 matched=True
+[2026-07-01 03:52:41] [Information] ValidacaoResponse enviada: 2c3e6683-410d-40d9-a318-fe64c27ff2d5 status=success approved=True
+[2026-07-01 04:07:08] [Information] Reconectando ao servidor...
+[2026-07-01 04:08:06] [Information] Reconectado: JmbeBkzrEf1_8t_biLNcfw
+[2026-07-01 04:08:06] [Information] Agente registrado: CompanyCode=FELIX StationId=FELIX
+[2026-07-01 04:08:49] [Information] Comando IniciarCaptura: 59df3fe1-cc74-4197-98f8-797ed7768087
+[2026-07-01 04:08:49] [Information] CapturaResponse enviada: 59df3fe1-cc74-4197-98f8-797ed7768087 status=started
+[2026-07-01 04:08:49] [Information] CapturaResponse enviada: 59df3fe1-cc74-4197-98f8-797ed7768087 status=capturing_first
+[2026-07-01 04:08:51] [Information] GetImageAsBase64Png iniciado. rawImage Length=153600, Width=320, Height=480
+[2026-07-01 04:08:51] [Information] GetImageAsBase64Png concluído com sucesso. Base64 Length=182820
+[2026-07-01 04:08:51] [Information] Template criado: 428 bytes (max=1562)
+[2026-07-01 04:08:51] [Information] CapturaResponse enviada: 59df3fe1-cc74-4197-98f8-797ed7768087 status=processing
+[2026-07-01 04:08:53] [Information] CapturaResponse enviada: 59df3fe1-cc74-4197-98f8-797ed7768087 status=capturing_second
+[2026-07-01 04:08:54] [Information] GetImageAsBase64Png iniciado. rawImage Length=153600, Width=320, Height=480
+[2026-07-01 04:08:54] [Information] GetImageAsBase64Png concluído com sucesso. Base64 Length=133408
+[2026-07-01 04:08:54] [Information] Template criado: 368 bytes (max=1562)
+[2026-07-01 04:08:54] [Information] Template criado: 368 bytes (max=1562)
+[2026-07-01 04:08:54] [Information] Match: score=322.0 (normalizado=100/100) threshold=70 matched=True
+[2026-07-01 04:08:55] [Information] CapturaResponse enviada: 59df3fe1-cc74-4197-98f8-797ed7768087 status=success
+[2026-07-01 04:09:03] [Information] Comando IniciarValidacao: ea9bb5f3-4815-49cc-935f-200ad81e5437
+[2026-07-01 04:09:03] [Information] ValidacaoResponse enviada: ea9bb5f3-4815-49cc-935f-200ad81e5437 status=started approved=(null)
+[2026-07-01 04:09:04] [Information] GetImageAsBase64Png iniciado. rawImage Length=153600, Width=320, Height=480
+[2026-07-01 04:09:04] [Information] GetImageAsBase64Png concluído com sucesso. Base64 Length=182476
+[2026-07-01 04:09:04] [Information] Template criado: 434 bytes (max=1562)
+[2026-07-01 04:09:04] [Information] Match: score=1000.0 (normalizado=100/100) threshold=70 matched=True
+[2026-07-01 04:09:05] [Information] ValidacaoResponse enviada: ea9bb5f3-4815-49cc-935f-200ad81e5437 status=success approved=True
+[2026-07-01 04:11:58] [Warning] Conexao fechada: (null)
+[2026-07-01 04:11:58] [Information] Dispositivo biométrico fechado.
+[2026-07-01 04:11:58] [Information] CMSO Agente Biométrico (Tray) encerrado.
