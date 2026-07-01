@@ -40,6 +40,12 @@ static class Program
     [STAThread]
     static void Main()
     {
+        // Velopack hooks — executa no start após instalação/atualização.
+        // Deve vir em primeiro lugar para capturar argumentos do instalador sem ser bloqueado pelo Mutex.
+        VelopackApp.Build()
+            .OnFirstRun(v => HandleFirstRun())
+            .Run();
+
         // Single-instance check
         using var mutex = new Mutex(true, AppMutexName, out var createdNew);
         if (!createdNew)
@@ -48,11 +54,6 @@ static class Program
                 "CMSO Biometria", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
-
-        // Velopack hooks — executa no start após instalação/atualização
-        VelopackApp.Build()
-            .OnFirstRun(v => HandleFirstRun())
-            .Run();
 
         ApplicationConfiguration.Initialize();
 
