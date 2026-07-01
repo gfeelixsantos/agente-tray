@@ -64,6 +64,9 @@ namespace Cmso.Biometric.Agent.Tray
             response.Headers.Add("Access-Control-Allow-Origin", "*");
             response.Headers.Add("Access-Control-Allow-Methods", "GET, OPTIONS");
             response.Headers.Add("Access-Control-Allow-Headers", "*");
+            // Necessário para Chrome Private Network Access (PNA) — permite que páginas HTTPS
+            // públicas acessem servidores locais em 127.0.0.1 sem bloqueio do browser
+            response.Headers.Add("Access-Control-Allow-Private-Network", "true");
 
             if (context.Request.HttpMethod == "OPTIONS")
             {
