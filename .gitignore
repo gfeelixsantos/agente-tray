@@ -1,0 +1,110 @@
+# ==============================================================================
+# .gitignore -- Cmso.Biometric.Agent
+# Projeto: Windows Service + WinForms Tray (.NET 8, x86, leitor Futronic)
+# ==============================================================================
+
+# --- Build outputs ------------------------------------------------------------
+[Bb]in/
+[Oo]bj/
+out/
+publish/
+artifacts/
+
+# --- NuGet --------------------------------------------------------------------
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+**/[Pp]ackages/
+# Manter packages.lock.json se o projeto usar NuGet lock file
+*.lock.json
+!packages.lock.json
+
+# --- Visual Studio ------------------------------------------------------------
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.DotSettings.user
+*.rsuser
+*.VC.db
+*.VC.VC.opendb
+*.pidb
+*.svclog
+*.scc
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.psess
+*.vsp
+*.vspx
+*.e2e
+_Chutzpah*
+ipch/
+$tf/
+
+# --- JetBrains Rider ----------------------------------------------------------
+.idea/
+*.sln.iml
+
+# --- VS Code ------------------------------------------------------------------
+.vscode/
+# Manter se quiser recomendar extensoes ao time
+!.vscode/extensions.json
+
+# --- Launch Settings (configuracao local por maquina) -------------------------
+# Cada dev tem porta/perfil diferente -- nao commitar
+**/Properties/launchSettings.json
+
+# --- Segredos e configuracoes sensiveis ---------------------------------------
+# NUNCA commitar -- podem conter connection strings, chaves de API, senhas
+appsettings.Production.json
+appsettings.Staging.json
+secrets.json
+
+# appsettings.json e appsettings.Development.json SAO commitados:
+# contÃªm apenas Biometric:HubUrl -- sem dados sensiveis
+!appsettings.json
+!appsettings.Development.json
+
+# --- DLLs nativas Futronic (binarios proprietarios) --------------------------
+# ftrScanAPI.dll e ftrAnsiSdk.dll sao binarios x86 proprietarios da Futronic.
+# NAO entram no repositorio: licenca proprietaria + tamanho (~1.2 MB).
+#
+# Como obter em uma maquina nova:
+#   Copiar de CmsoAgendamento\docs\ para Cmso.Biometric.Agent.Core\
+#   O build ira falhar sem elas -- comportamento esperado.
+**/ftrScanAPI.dll
+**/ftrAnsiSdk.dll
+
+# --- Atalhos Windows ----------------------------------------------------------
+# Arquivos .lnk sao especificos da maquina de desenvolvimento
+*.lnk
+
+# --- Sistema operacional Windows ----------------------------------------------
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# --- Logs ---------------------------------------------------------------------
+*.log
+logs/
+
+# --- Arquivos temporarios -----------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+*~

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- x86 obrigatorio: ftrScanAPI.dll e ftrAnsiSdk.dll sao DLLs 32-bit (Futronic) -->
+    <PlatformTarget>x86</PlatformTarget>
+    <!-- win-x86 garante runtime correto ao publicar como self-contained -->
+    <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+    <UserSecretsId>dotnet-Cmso.Biometric.Agent.Service-9a0b2574-f056-4f38-98d0-070241b5963c</UserSecretsId>
+    <Version>1.0.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Company>CMSO</Company>
+    <Product>CMSO Agente Biométrico (Service)</Product>
+    <Description>Worker service — agente biométrico CMSO</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cmso.Biometric.Agent.Core\Cmso.Biometric.Agent.Core.csproj" />
+  </ItemGroup>
+
+</Project>
