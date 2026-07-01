@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -15,6 +15,7 @@
     <Company>CMSO</Company>
     <Product>CMSO Agente Biométrico (Service)</Product>
     <Description>Worker service — agente biométrico CMSO</Description>
+    <Copyright>Copyright © 2026 CMSO</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

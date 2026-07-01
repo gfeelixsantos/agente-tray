@@ -108,5 +108,35 @@ static class Program
                 $"Primeira execução após instalação/atualização.{Environment.NewLine}");
         }
         catch {}
+
+        // Prompt para instalação do driver do leitor biométrico
+        var driverInstallerPath = Path.Combine(AppContext.BaseDirectory, "driver", "ftrDriverSetup_win8_whql_3471.exe");
+        if (File.Exists(driverInstallerPath))
+        {
+            var result = MessageBox.Show(
+                "Para que o leitor biométrico funcione corretamente, é necessário instalar o driver do dispositivo.\n\nDeseja iniciar a instalação do driver agora?",
+                "CMSO Biometria - Instalação de Driver",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = driverInstallerPath,
+                        UseShellExecute = true,
+                        Verb = "runas" // Pede elevação de privilégios de administrador
+                    };
+                    System.Diagnostics.Process.Start(psi);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Falha ao iniciar o instalador do driver: {ex.Message}", "CMSO Biometria",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

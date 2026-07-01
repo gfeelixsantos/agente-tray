@@ -28,6 +28,7 @@ public class TrayApplicationContext : ApplicationContext
     private readonly ToolStripMenuItem _menuReconectar;
     private readonly ToolStripMenuItem _menuLogs;
     private readonly ToolStripMenuItem _menuAutoStart;
+    private readonly ToolStripMenuItem _menuInstalarDriver;
 
     // Ícones (gerados a partir dos PNGs com overlay colorido de status)
     private readonly Icon _iconGreen;
@@ -78,6 +79,7 @@ public class TrayApplicationContext : ApplicationContext
         _lblLeitor    = new ToolStripLabel("Leitor:   ⏳ Aguardando...");
         _menuReconectar = new ToolStripMenuItem("🔄  Reconectar", null, OnReconectar);
         _menuLogs       = new ToolStripMenuItem("📋  Ver Logs",   null, OnVerLogs);
+        _menuInstalarDriver = new ToolStripMenuItem("🔌  Instalar Driver do Leitor", null, OnInstalarDriver);
 
         // Auto-start: estado inicial = está registrado no Windows
         var autoStartAtivo = IsAutoStartEnabled();
@@ -96,6 +98,7 @@ public class TrayApplicationContext : ApplicationContext
         _menu.Items.Add(new ToolStripSeparator());
         _menu.Items.Add(_menuReconectar);
         _menu.Items.Add(_menuLogs);
+        _menu.Items.Add(_menuInstalarDriver);
         _menu.Items.Add(new ToolStripSeparator());
         _menu.Items.Add(_menuAutoStart);
         _menu.Items.Add(new ToolStripSeparator());
@@ -594,6 +597,34 @@ public class TrayApplicationContext : ApplicationContext
         else
             MessageBox.Show("Nenhum arquivo de log encontrado.", "CMSO Biometria",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+ 
+    private void OnInstalarDriver(object? sender, EventArgs e)
+    {
+        var driverInstallerPath = Path.Combine(AppContext.BaseDirectory, "driver", "ftrDriverSetup_win8_whql_3471.exe");
+        if (File.Exists(driverInstallerPath))
+        {
+            try
+            {
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = driverInstallerPath,
+                    UseShellExecute = true,
+                    Verb = "runas" // Pede elevação de privilégios de administrador
+                };
+                System.Diagnostics.Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Falha ao iniciar o instalador do driver: {ex.Message}", "CMSO Biometria",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        else
+        {
+            MessageBox.Show("Arquivo de instalação do driver não encontrado.", "CMSO Biometria",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 
     private void OnFechar(object? sender, EventArgs e)

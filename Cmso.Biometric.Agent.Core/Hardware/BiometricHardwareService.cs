@@ -46,8 +46,9 @@ namespace Cmso.Biometric.Agent.Core.Hardware
 
                 if (_handle == IntPtr.Zero)
                 {
-                    _logger.LogError("Falha ao abrir dispositivo biométrico (handle nulo). " +
-                                     "Verifique se o leitor está conectado via USB.");
+                    int err = FtrScanApi.ftrScanGetLastError();
+                    _logger.LogError("Falha ao abrir dispositivo biométrico (handle nulo). Código de erro: {Err}. " +
+                                     "Verifique se o leitor está conectado via USB.", err);
                     return false;
                 }
 

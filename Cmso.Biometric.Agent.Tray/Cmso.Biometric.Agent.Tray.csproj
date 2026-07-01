@@ -16,7 +16,7 @@
     <Company>CMSO</Company>
     <Product>CMSO Agente Biométrico</Product>
     <Description>Tray de notificações — agente biométrico CMSO</Description>
-    <Copyright>Copyright © $(Year)</Copyright>
+    <Copyright>Copyright © 2026 CMSO</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
@@ -56,6 +56,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\driver\ftrDriverSetup_win8_whql_3471.exe">
+      <Link>driver\ftrDriverSetup_win8_whql_3471.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

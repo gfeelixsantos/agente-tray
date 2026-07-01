@@ -53,7 +53,10 @@ dotnet publish $TrayProject `
     -c $Configuration `
     --self-contained `
     -r $Runtime `
-    -o $PublishPath
+    -o $PublishPath `
+    -p:Version=$Version `
+    -p:AssemblyVersion=$Version `
+    -p:FileVersion=$Version
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "[ERRO] Falha na publicação" -ForegroundColor Red
