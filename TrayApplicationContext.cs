@@ -19,6 +19,7 @@ public class TrayApplicationContext : ApplicationContext
     private readonly BiometricHardwareService _hardware;
     private readonly BiometricSignalRClient   _client;
     private readonly string _serverUrl;
+    private readonly LocalHttpListener _localHttpListener;
 
     // Itens de menu dinâmicos
     private readonly ToolStripLabel  _lblStatus;
@@ -53,6 +54,9 @@ public class TrayApplicationContext : ApplicationContext
     public TrayApplicationContext(string serverUrl, ILoggerFactory loggerFactory)
     {
         _serverUrl = serverUrl;
+
+        _localHttpListener = new LocalHttpListener(Environment.MachineName, loggerFactory.CreateLogger<LocalHttpListener>());
+        _localHttpListener.Start(5163);
 
         // Serviços de hardware e comunicação
         _hardware = new BiometricHardwareService(loggerFactory.CreateLogger<BiometricHardwareService>());
@@ -834,6 +838,8 @@ public class TrayApplicationContext : ApplicationContext
             _appCts.Dispose();
             _currentOperationCts?.Cancel();
             _currentOperationCts?.Dispose();
+
+            _localHttpListener.Dispose();
 
             _trayIcon.Visible = false;
             _trayIcon.Dispose();
